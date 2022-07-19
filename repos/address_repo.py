@@ -1,8 +1,7 @@
 import json
 import logging
 import time
-from typing import List, Type
-from sqlalchemy.exc import SQLAlchemyError
+from typing import List
 from sqlalchemy import and_
 from sqlalchemy.orm import Session
 from database.models.models import Address, TimeslotsAddress, TimeSlot
@@ -26,7 +25,7 @@ def create_address(address: dict, db: Session) -> Address:
                       postcode=address["postcode"],
                       city=address["city"],
                       country_code=address["country_code"],
-                      house_number=address["house_number"], )
+                    )
         db.add(add)
         return add
     except Exception as sq:
@@ -49,8 +48,7 @@ def get_address(address: dict, db: Session) -> Address:
                                              Address.country == address["country"],
                                              Address.postcode == address["postcode"],
                                              Address.city == address["city"],
-                                             Address.country_code == address["country_code"],
-                                             Address.house_number == address["house_number"],
+                                             Address.country_code == address["country_code"]
                                              )
                                         ).first()
     except Exception as sq:
@@ -116,7 +114,6 @@ def insert_timeslot_to_addresses(timeslot: TimeSlot, addresses: List[str], db: S
     for address in addresses:
         try:
             add = get_or_create_new(format_address(address), db)
-            timeslot_add = TimeslotsAddress(timeslot_id=timeslot.id, address_id=add.id)
-            db.add(timeslot_add)
+            timeslot.ad.append(add)
         except Exception as e:
             raise e

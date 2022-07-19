@@ -4,22 +4,22 @@
     {
       "start": "16-05-2022,18:00",
       "end": "16-05-2022,19:00",
-      "addresses": ["Ben Gurion 44 hod hasharon IL"]
+      "addresses": ["Ben Gurion 44, hod hasharon IL"]
     },
     {
       "start": "16-05-2022,18:11",
       "end": "16-05-2022,19:11",
-      "addresses": ["Ben Gurion 16 hod hasharon IL"]
+      "addresses": ["Ben Gurion 16, hod hasharon IL"]
     },
     {
       "start": "16-05-2022,18:30",
       "end": "16-05-2022,19:30",
-      "addresses": ["Weizman  100 kfar saba IL"]
+      "addresses": ["Weizman 100, kfar saba IL"]
     },
     {
       "start": "16-05-2022,22:30",
       "end": "16-05-2022,23:55",
-      "addresses": ["Weizman 50 kfar saba IL"]
+      "addresses": ["Weizman 50, kfar saba IL"]
     }
 
   ]

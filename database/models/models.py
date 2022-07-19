@@ -33,19 +33,7 @@ class TimeSlot(Base):
     start = Column(DateTime, nullable=False)
     end = Column(DateTime, nullable=False)
     deliveries = relationship("Delivery", back_populates="timeslot")
-    # addressees = relationship("Address", secondary="TimeslotsAddress", back_populates="timeslot")
     ad = relationship("Address", secondary=TimeslotsAddress, back_populates="ts")
-
-
-# class TimeslotsAddress(Base):
-#     """
-#     Association table for many-to-many relations between TimesSlot & Address.
-#     """
-#     __tablename__ = 'timeslots_addresses'
-#     timeslot_id = Column(ForeignKey('timeslots.id'), primary_key=True)
-#     address_id = Column(ForeignKey('addressees.id'), primary_key=True)
-#     timeslot = relationship("TimeSlot", back_populates="addressees")
-#     address = relationship("Address", back_populates="timeslots")
 
 
 class Address(Base):
@@ -61,6 +49,4 @@ class Address(Base):
     postcode = Column(String(50), nullable=False)
     city = Column(String(50), nullable=False)
     country_code = Column(String(4), nullable=False)
-    house_number = Column(String(50), nullable=False)
-    # timeslots = relationship("TimeSlot", secondary="TimeslotsAddress", back_populates="address")
     ts = relationship("TimeSlot", secondary=TimeslotsAddress, back_populates="ad")
